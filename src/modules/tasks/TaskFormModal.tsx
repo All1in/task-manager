@@ -18,7 +18,7 @@ const schema = Yup.object({
   title: Yup.string().required('Вкажіть назву'),
   description: Yup.string().max(1000, 'Занадто довгий опис'),
   priority: Yup.mixed<'low' | 'medium' | 'high'>().oneOf(['low', 'medium', 'high']).required(),
-  dueDate: Yup.string().nullable(true),
+  dueDate: Yup.string().nullable(),
 })
 
 const toDateInput = (iso?: string) => (iso ? format(new Date(iso), 'yyyy-MM-dd') : '')
@@ -172,3 +172,6 @@ const TaskFormModal: React.FC<Props> = ({ open, onClose, initial }) => {
 }
 
 export default TaskFormModal
+
+
+
